@@ -31,6 +31,8 @@ fastify.get('/produtos', async (request, reply) => {
   }
 });
 
+
+
 // Run the server!
 fastify.listen({ port: 5005 }, function (err, address) {
   if (err) {
