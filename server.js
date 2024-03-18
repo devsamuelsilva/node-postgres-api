@@ -1,5 +1,8 @@
 import Fastify from 'fastify';
+import { connection } from './DB/db.js';
+import { config } from './DB/config.js';
 
+connection();
 // CommonJs
 const fastify = Fastify({
     logger: true
@@ -14,6 +17,20 @@ fastify.get('/', function (request, reply) {
     }
   )
 })
+
+fastify.get('/produtos', async (request, reply) => {
+  const query = 'SELECT * FROM produtos';
+
+  try {
+    const result = await config.query(query);
+    reply.send(result.rows);
+
+  } catch (err) {
+    console.log(err);
+    reply.send(500);
+  }
+});
+
 // Run the server!
 fastify.listen({ port: 5005 }, function (err, address) {
   if (err) {
@@ -21,4 +38,8 @@ fastify.listen({ port: 5005 }, function (err, address) {
     process.exit(1)
   }
   console.log(`Server is now listening on ${address}`);
+  console.log("teste");
 });
+
+
+
