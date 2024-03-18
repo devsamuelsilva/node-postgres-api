@@ -1,4 +1,4 @@
-#Proposta de projeto feita pelo professor Angelo Lustosa.
+# Proposta de projeto feita pelo professor Angelo Lustosa.
 
 node-postgres-api
 
@@ -26,8 +26,5 @@ nome, descricao, desconto, preco, ativo, categoria, data_cadastro,
 3 - Endpoints:
 
 GET /produto GET /produtos GET /produto/?status=ativo POST /produto PUT /produto/:id PATCH /produto/:id DELETE /produto/:id
-
-
-# node-postgres-api
 
 Projeto NODE utilizando como Stack - PGAdmin, DOt.Envi, CORS, MaterialUI, Selenium ou Maestro
