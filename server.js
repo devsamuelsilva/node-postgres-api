@@ -18,18 +18,34 @@ fastify.get('/', function (request, reply) {
   )
 })
 
+// mostrando todos os produtos
+// fastify.get('/produtos', async (request, reply) => {
+//   const query = 'SELECT * FROM produtos';
+
+//   try {
+//     const result = await config.query(query);
+//     reply.send(result.rows);
+
+//   } catch (err) {
+//     console.log(err);
+//     reply.send(500);
+//   }
+// });
+
+
+// aplicando alguns filtros
 fastify.get('/produtos', async (request, reply) => {
-  const query = 'SELECT * FROM produtos';
+  const query = 'SELECT nome FROM produtos';
 
   try {
     const result = await config.query(query);
     reply.send(result.rows);
-
   } catch (err) {
     console.log(err);
     reply.send(500);
   }
 });
+
 
 
 
