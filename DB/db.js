@@ -12,7 +12,11 @@ export const connection = async () => {
 }
 
 export const deleteProduto = async (id) => {
-    
+
     return await  config.query('DELETE FROM produtos where id=$1', [id]);
 
 }
+
+// export const postProduto = async () => {
+
+// }

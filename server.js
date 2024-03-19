@@ -35,7 +35,7 @@ fastify.get('/', function (request, reply) {
 
 // aplicando alguns filtros
 fastify.get('/produtos', async (request, reply) => {
-  const query = 'SELECT id FROM produtos';
+  const query = 'SELECT * FROM produtos';
 
   try {
     const result = await config.query(query);
