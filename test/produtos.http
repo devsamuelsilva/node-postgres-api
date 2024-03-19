@@ -1,0 +1,5 @@
+DELETE http://[::1]:5005/produtos/1
+
+###
+
+GET http://[::1]:5005/produtos

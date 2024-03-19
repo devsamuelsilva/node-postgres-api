@@ -10,3 +10,9 @@ export const connection = async () => {
         console.log('Erro ao conectar com o banco: ', err);
     }
 }
+
+export const deleteProduto = async (id) => {
+    
+    return await  config.query('DELETE FROM produtos where id=$1', [id]);
+
+}
