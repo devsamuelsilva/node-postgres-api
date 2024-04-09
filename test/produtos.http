@@ -1,5 +1,24 @@
-DELETE http://[::1]:5005/produtos/1
+
+//GET para buscar Todos
+GET http://[::1]:5005/produtos
 
 ###
 
-GET http://[::1]:5005/produtos
+//get por ID
+GET http://[::1]:5005/produto/10 HTTP/1.1
+
+###
+
+POST http://[::1]:5005/produtos HTTP/1.1
+Content-Type: application/json
+
+{
+    "nome": "Iphone XR",
+    "categoria": "Celular",
+    "preco": 1.500,
+    "desconto": 0.3   
+}
+
+###
+
+DELETE http://[::1]:5005/produtos/8
