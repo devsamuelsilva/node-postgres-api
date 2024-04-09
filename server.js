@@ -1,11 +1,12 @@
 import Fastify from 'fastify';
 import { connection, deleteProduto } from './DB/db.js';
 import { config } from './DB/config.js';
+import { produtosRoutes } from './routes/produto.route.js';
 
 connection();
 // CommonJs
 const fastify = Fastify({
-    logger: true
+    logger: false
 });
 // Declare a route
 fastify.get('/', function (request, reply) {
@@ -17,6 +18,8 @@ fastify.get('/', function (request, reply) {
     }
   )
 })
+
+produtosRoutes(fastify);
 
 // mostrando todos os produtos
 // fastify.get('/produtos', async (request, reply) => {
@@ -34,17 +37,17 @@ fastify.get('/', function (request, reply) {
 
 
 // aplicando alguns filtros
-fastify.get('/produtos', async (request, reply) => {
-  const query = 'SELECT * FROM produtos';
+// fastify.get('/produtos', async (request, reply) => {
+//   const query = 'SELECT * FROM produtos';
 
-  try {
-    const result = await config.query(query);
-    reply.send(result.rows);
-  } catch (err) {
-    console.log(err);
-    reply.send(500);
-  }
-});
+//   try {
+//     const result = await config.query(query);
+//     reply.send(result.rows);
+//   } catch (err) {
+//     console.log(err);
+//     reply.send(500);
+//   }
+// });
 
 fastify.get('/produto/:id', async (request, reply) => {
   const id = request.params.id;
@@ -91,6 +94,8 @@ fastify.delete('/produtos/:id', async (req, res) => {
   res.status(204).send(`Produto de id: ${id} deletado com sucesso !!`);
   return result;
 })
+
+//Fazer o PUT e um PATCH para a SEGUNDA.
 
 
 // Run the server!
