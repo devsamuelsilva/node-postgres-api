@@ -51,7 +51,7 @@ produtosRoutes(fastify);
 
 fastify.get('/produto/:id', async (request, reply) => {
   const id = request.params.id;
-  //DOLAR1($1) e usado apra receber o dados do paramentro posto no RESULT
+  //DOLAR1($1) e usado apra receber o dados do paramentro posto no RESULTTTT
   const query = 'SELECT * FROM produtos WHERE id=$1'
   try {
     const result = await config.query(query,[id]);
