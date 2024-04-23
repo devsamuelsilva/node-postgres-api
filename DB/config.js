@@ -1,11 +1,14 @@
 import pg from 'pg';
+import 'dotenv/config'
+
 const { Pool } = pg;
+console.log(process.env)
 
 export const config = new Pool({
-  host: 'dpg-cok2ign79t8c73a4g440-a.oregon-postgres.render.com',
+  host: process.env.DB_HOST,
   port: 5432,
-  database: 'dcf22',
-  user: 'samuel',
-  password: 'p1nRFjxppzXtQgig8y4YDjtGK9qhh7m4',
+  database: process.env.DB_NAME,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
   ssl: true,
 });

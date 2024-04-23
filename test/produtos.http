@@ -5,7 +5,7 @@ GET http://[::1]:5005/produtos
 ###
 
 //get por ID
-GET http://[::1]:5005/produto/10 HTTP/1.1
+GET http://[::1]:5005/produto/3 HTTP/1.1
 
 ###
 
