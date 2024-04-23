@@ -99,7 +99,7 @@ fastify.delete('/produtos/:id', async (req, res) => {
 
 
 // Run the server!
-fastify.listen({ port: 5005 }, function (err, address) {
+fastify.listen({ host:'0.0.0.0', port: 5005 }, function (err, address) {
   if (err) {
     fastify.log.error(err)
     process.exit(1)
