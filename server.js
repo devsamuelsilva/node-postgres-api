@@ -97,6 +97,30 @@ fastify.delete('/produtos/:id', async (req, res) => {
 
 //Fazer o PUT e um PATCH para a SEGUNDA.
 
+//PUT
+fastify.put('/produtos/:id', async (req, reply) => {
+  const id = req.params.id;
+  const {nome, preco} = req.body; // This will hold the data to update
+
+  // Validation (Optional): Ensure required fields are present in req.body
+
+  // Build the UPDATE query dynamically using template literals for security
+  const query = `UPDATE produtos SET nome = '${nome}', preco = ${preco} WHERE id = ${id} RETURNING *`;
+  console.log(`[QUERY]: ${query}`);
+
+  try {
+    const result = await config.query(query);
+    reply.code(201).send({ 
+      message: 'Produto atualizado com sucesso!', 
+      data: result.rows[0]
+    });
+  } catch (err) {
+    console.error(err);
+    reply.code(400).send({ message: 'Erro ao atualizar o produto' });
+  }
+});
+
+
 
 // Run the server!
 fastify.listen({ host:'0.0.0.0', port: 5005 }, function (err, address) {

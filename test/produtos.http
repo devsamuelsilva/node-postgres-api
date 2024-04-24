@@ -1,6 +1,6 @@
 
 //GET para buscar Todos
-GET http://[::1]:5005/produtos
+GET http://127.0.0.1:5005/produtos
 
 ###
 
@@ -9,7 +9,7 @@ GET http://[::1]:5005/produto/3 HTTP/1.1
 
 ###
 
-POST http://[::1]:5005/produtos HTTP/1.1
+POST http://127.0.0.1:5005/produtos HTTP/1.1
 Content-Type: application/json
 
 {
@@ -17,6 +17,16 @@ Content-Type: application/json
     "categoria": "Celular",
     "preco": 1.500,
     "desconto": 0.3   
+}
+
+###
+
+PUT http://127.0.0.1:5005/produtos/6
+Content-Type: application/json
+
+{
+    "nome": "Teste01",
+    "preco": 2.999
 }
 
 ###
